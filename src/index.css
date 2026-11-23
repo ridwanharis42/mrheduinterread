@@ -1,0 +1,233 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #FFF5F7;
+  font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+  color: #2D2A32;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* Scrollbar halus */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #FFC2D1; border-radius: 99px; }
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(255, 77, 109, 0.08);
+  border: 1px solid #FFE3E9;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 99px;
+  background: white;
+  border: 1.5px solid #FFE3E9;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: #FF4D6D;
+  color: white;
+  border-color: #FF4D6D;
+}
+
+.btn-primary {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #FF4D6D, #FF8A5C);
+  color: white;
+  padding: 14px;
+  border-radius: 16px;
+  font-weight: 900;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+}
+
+.btn-secondary {
+  border: none;
+  background: #FFF0F3;
+  color: #FF4D6D;
+  padding: 10px 16px;
+  border-radius: 99px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.progress-track {
+  height: 10px;
+  background: #FFE3E9;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF4D6D, #FFB347);
+  border-radius: 99px;
+}
+
+/* ===== TAMPILAN TENGAH 1/2 LAYAR UNTUK PC ===== */
+body {
+  background: #FFE8D6 !important; /* Warna latar di luar HP */
+  background-image: radial-gradient(#FFC9A3 1.5px, transparent 1.5px) !important;
+  background-size: 24px 24px !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.app-shell {
+  width: 100% !important;
+  max-width: 480px !important; /* Kunci jadi selebar HP */
+  min-height: 100vh !important;
+  margin: 0 auto !important;
+  background: #FFF9F5 !important;
+  box-shadow: 0 0 50px rgba(255, 77, 109, 0.25) !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+.app-header {
+  max-width: 480px !important;
+  margin: 0 auto !important;
+}
+
+.bottom-nav {
+  max-width: 480px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  border-radius: 24px 24px 0 0 !important;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08) !important;
+}
+
+/* Di HP (layar kecil), bayangan hilang biar full layar */
+@media (max-width: 480px) {
+  body { background: #FFF9F5 !important; background-image: none !important; }
+  .app-shell { box-shadow: none !important; }
+}
+/* ===== PERBAIKAN BOTTOM NAV KEPOTONG ===== */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.app-shell {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  padding-bottom: 0 !important;
+}
+
+.app-content {
+  padding-bottom: 100px !important; /* Kasih ruang biar tombol terakhir tidak ketutup nav */
+}
+
+.bottom-nav {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  height: 72px !important;
+  min-height: 72px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+  background: #FFFFFF !important;
+  border-top: 1px solid #FFE0E6 !important;
+  border-radius: 20px 20px 0 0 !important;
+  box-shadow: 0 -6px 20px rgba(0,0,0,0.10) !important;
+  padding: 8px 4px 10px 4px !important;
+  box-sizing: border-box !important;
+  z-index: 100 !important;
+  overflow: visible !important;
+}
+
+.bottom-nav .nav-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  padding: 4px 2px !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.bottom-nav .nav-item span:first-child {
+  font-size: 20px !important;
+  line-height: 1 !important;
+}
+/* ===== PERBAIKAN LEBAR LAYAR TIDAK STABIL (MEMORY & TEBAK WARNA MENGECIL) ===== */
+html, body, #root {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+body {
+  display: block !important; /* Jangan flex di body, pindah ke #root */
+  background: #FFE8D6 !important;
+  background-image: radial-gradient(#FFC9A3 1.5px, transparent 1.5px) !important;
+  background-size: 24px 24px !important;
+}
+
+#root {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+}
+
+.app-shell {
+  width: 100% !important;
+  max-width: 480px !important;
+  min-width: 480px !important; /* KUNCI: tidak boleh mengecil di bawah 480px di PC */
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  margin: 0 auto !important;
+  background: #FFF9F5 !important;
+  box-shadow: 0 0 50px rgba(255, 77, 109, 0.25) !important;
+  box-sizing: border-box !important;
+}
+
+.app-content {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 16px 16px 100px 16px !important;
+}
+
+/* Semua kartu di dalam Gim harus selebar konten, tidak boleh mengecil */
+.app-content .card {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Di HP, kuncinya dilepas biar full layar HP */
+@media (max-width: 480px) {
+  body { background: #FFF9F5 !important; background-image: none !important; }
+  .app-shell {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+}
