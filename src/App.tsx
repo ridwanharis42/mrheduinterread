@@ -8,6 +8,7 @@ import Achievements from './components/Achievements'
 import ParentDashboard from './components/ParentDashboard'
 import Settings from './components/Settings'
 import type { Story } from './data/stories'
+import GerbangKode from "./components/GerbangKode";
 
 export default function App() {
   const [page, setPage] = useState('home')
@@ -31,6 +32,7 @@ export default function App() {
 ]
 
   return (
+  <GerbangKode>
     <div className="app-shell">
 {/* ===== HEADER PROFESIONAL - MRH ===== */}
 <div style={{
@@ -94,5 +96,6 @@ export default function App() {
   ))}
 </div>
 </div>
+</GerbangKode>
   )
 }
